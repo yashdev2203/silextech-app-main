@@ -32,6 +32,13 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          NEXTAUTH_URL: 'http://localhost:4002'
+          NEXTAUTH_SECRET: 'rZTFtfNuSMajLnfFrWT2PZ3lX8WZv7W/Xs2H8hkEY6g='
+          DATABASE_URL: 'postgresql://testAzure:Yashdev@123@mydatabase010.postgres.database.azure.com:5432/postgres?sslmode=require'
+          APP_URL: 'http://localhost:4002'
+          SVIX_URL: 'https://api.eu.svix.com'
+
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
