@@ -1,11 +1,11 @@
 import {
   Cog6ToothIcon,
-  DocumentMagnifyingGlassIcon,
-  KeyIcon,
-  PaperAirplaneIcon,
-  ShieldExclamationIcon,
+  // DocumentMagnifyingGlassIcon,
+  // KeyIcon,
+  // PaperAirplaneIcon,
+  // ShieldExclamationIcon,
   UserPlusIcon,
-  BanknotesIcon,
+  // BanknotesIcon,
 } from '@heroicons/react/24/outline';
 import type { Team } from '@prisma/client';
 import classNames from 'classnames';
@@ -20,7 +20,7 @@ interface TeamTabProps {
   teamFeatures: TeamFeature;
 }
 
-const TeamTab = ({ activeTab, team, heading, teamFeatures }: TeamTabProps) => {
+const TeamTab = ({ activeTab, team, heading }: TeamTabProps) => {
   const { canAccess } = useCanAccess();
 
   const navigations = [

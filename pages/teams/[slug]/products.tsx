@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPageWithLayout } from 'types';
-import { useTranslation } from 'next-i18next';
+// import { useTranslation } from 'next-i18next';
 import { Img } from '@react-email/components';
 import { useState } from 'react';
 import {  HashtagIcon } from '@heroicons/react/24/outline'
@@ -9,9 +9,9 @@ import {  HashtagIcon } from '@heroicons/react/24/outline'
 // import app from '@/lib/app';
 
 const Products: NextPageWithLayout = () => {
-  const { t } = useTranslation('common');
+  // const { t } = useTranslation('common');
 
-  const [features, setFeatures] = useState([
+  const [features] = useState([
     {
       name: 'Clause Management',
       description: 'The Clause Library feature centralizes legal clauses with standardized formats, version control, and metadata for easy search.',

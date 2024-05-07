@@ -13,6 +13,7 @@ import image2 from '../public/image2.png';
 import image3 from '../public/image3.png';
 import image4 from '../public/image4.jpg';
 import image5 from '../public/image5.jpg';
+import { Img } from '@react-email/components';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -108,7 +109,7 @@ const About: NextPageWithLayout = () => {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
+                <Img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt=""
