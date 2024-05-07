@@ -18,8 +18,11 @@ const InputWithLabel = (props: InputWithLabelProps) => {
   return (
     <div className="form-control w-full">
       {typeof label === 'string' ? (
-        <label className="label">
-          <span className="label-text">{label}</span>
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          {label}
         </label>
       ) : (
         label

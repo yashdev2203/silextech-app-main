@@ -2,7 +2,7 @@ import React from 'react';
 
 const TestimonialSection = () => {
   return (
-    <div className="relative z-10 mt-32 bg-gray-900 pb-20 sm:mt-56 sm:pb-24 xl:pb-0">
+    <div className="relative z-10 mt-32 bg-s-lightblue pb-20 sm:mt-56 sm:pb-24 xl:pb-0">
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute left-[calc(50%-19rem)] top-[calc(50%-36rem)] transform-gpu blur-3xl">
           <div
@@ -48,7 +48,7 @@ const TestimonialSection = () => {
             </blockquote>
             <figcaption className="mt-8 text-base">
               <div className="font-semibold text-white">Judith Black</div>
-              <div className="mt-1 text-gray-400">CEO of Tuple</div>
+              <div className="mt-1 text-white">CEO</div>
             </figcaption>
           </figure>
         </div>

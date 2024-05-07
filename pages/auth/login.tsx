@@ -17,8 +17,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import env from '@/lib/env';
 import type { NextPageWithLayout } from 'types';
 import { AuthLayout } from '@/components/layouts';
-import GithubButton from '@/components/auth/GithubButton';
-import GoogleButton from '@/components/auth/GoogleButton';
+// import GithubButton from '@/components/auth/GithubButton';
+// import GoogleButton from '@/components/auth/GoogleButton';
 import { Alert, InputWithLabel, Loading } from '@/components/shared';
 import { authProviderEnabled } from '@/lib/auth';
 import Head from 'next/head';
@@ -121,100 +121,110 @@ const Login: NextPageWithLayout<
           {t(message.text)}
         </Alert>
       )}
-      <div className="rounded p-6 border">
-        <div className="flex gap-2 flex-wrap">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div className="bg-white px-6 py-12 shadow-lg sm:rounded-lg sm:px-12">
+          {/* <div className="flex gap-2 flex-wrap">
           {authProviders.github && <GithubButton />}
           {authProviders.google && <GoogleButton />}
-        </div>
+        </div> */}
 
-        {(authProviders.github || authProviders.google) &&
-          authProviders.credentials && <div className="divider">{t('or')}</div>}
+          {/* {(authProviders.github || authProviders.google) &&
+          authProviders.credentials && <div className="divider">{t('or')}</div>} */}
 
-        {authProviders.credentials && (
-          <form onSubmit={formik.handleSubmit}>
-            <div className="space-y-3">
-              <InputWithLabel
-                type="email"
-                label="Email"
-                name="email"
-                placeholder={t('email')}
-                value={formik.values.email}
-                error={formik.touched.email ? formik.errors.email : undefined}
-                onChange={formik.handleChange}
-              />
-              <div className="relative flex">
+          {authProviders.credentials && (
+            <form onSubmit={formik.handleSubmit}>
+              <div className="space-y-5">
                 <InputWithLabel
-                  type={isPasswordVisible ? 'text' : 'password'}
-                  name="password"
-                  placeholder={t('password')}
-                  value={formik.values.password}
-                  label={
-                    <label className="label">
-                      <span className="label-text">{t('password')}</span>
-                      <span className="label-text-alt">
-                        <Link
-                          href="/auth/forgot-password"
-                          className="text-sm text-primary hover:text-[color-mix(in_oklab,oklch(var(--p)),black_7%)]"
-                        >
-                          {t('forgot-password')}
-                        </Link>
-                      </span>
-                    </label>
-                  }
-                  error={
-                    formik.touched.password ? formik.errors.password : undefined
-                  }
+                  type="email"
+                  label="Email"
+                  name="email"
+                  placeholder={t('email')}
+                  value={formik.values.email}
+                  error={formik.touched.email ? formik.errors.email : undefined}
                   onChange={formik.handleChange}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-s-darkblue sm:text-sm sm:leading-6"
                 />
-                <TogglePasswordVisibility
-                  isPasswordVisible={isPasswordVisible}
-                  handlePasswordVisibility={handlePasswordVisibility}
+                <div className="relative flex">
+                  <InputWithLabel
+                    type={isPasswordVisible ? 'text' : 'password'}
+                    name="password"
+                    placeholder={t('password')}
+                    value={formik.values.password}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-s-darkblue sm:text-sm sm:leading-6"
+                    label={
+                      <label className="label">
+                        <span className="block text-sm font-medium leading-6 text-gray-900">
+                          {t('password')}
+                        </span>
+                        <span className="label-text-alt">
+                          <Link
+                            href="/auth/forgot-password"
+                            className="text-sm text-primary hover:text-[color-mix(in_oklab,oklch(var(--p)),black_7%)]"
+                          >
+                            {t('forgot-password')}
+                          </Link>
+                        </span>
+                      </label>
+                    }
+                    error={
+                      formik.touched.password
+                        ? formik.errors.password
+                        : undefined
+                    }
+                    onChange={formik.handleChange}
+                  />
+                  <TogglePasswordVisibility
+                    isPasswordVisible={isPasswordVisible}
+                    handlePasswordVisibility={handlePasswordVisibility}
+                  />
+                </div>
+                <GoogleReCAPTCHA
+                  recaptchaRef={recaptchaRef}
+                  onChange={setRecaptchaToken}
+                  siteKey={recaptchaSiteKey}
                 />
               </div>
-              <GoogleReCAPTCHA
-                recaptchaRef={recaptchaRef}
-                onChange={setRecaptchaToken}
-                siteKey={recaptchaSiteKey}
-              />
-            </div>
-            <div className="mt-3 space-y-3">
-              <Button
-                type="submit"
-                color="primary"
-                loading={formik.isSubmitting}
-                active={formik.dirty}
-                fullWidth
-                size="md"
+              <div className="mt-8 space-y-8">
+                <Button
+                  type="submit"
+                  color="primary"
+                  loading={formik.isSubmitting}
+                  active={formik.dirty}
+                  fullWidth
+                  size="md"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  {t('sign-in')}
+                </Button>
+                <AgreeMessage text={t('sign-in')} />
+              </div>
+            </form>
+          )}
+
+          {(authProviders.email || authProviders.saml) && (
+            <div className="divider"></div>
+          )}
+
+          <div className="space-y-3">
+            {authProviders.email && (
+              <Link
+                href={`/auth/magic-link${params}`}
+                className="btn btn-outline w-full"
               >
-                {t('sign-in')}
-              </Button>
-              <AgreeMessage text={t('sign-in')} />
-            </div>
-          </form>
-        )}
+                &nbsp;{t('sign-in-with-email')}
+              </Link>
+            )}
 
-        {(authProviders.email || authProviders.saml) && (
-          <div className="divider"></div>
-        )}
-
-        <div className="space-y-3">
-          {authProviders.email && (
-            <Link
-              href={`/auth/magic-link${params}`}
-              className="btn btn-outline w-full"
-            >
-              &nbsp;{t('sign-in-with-email')}
-            </Link>
-          )}
-
-          {authProviders.saml && (
-            <Link href="/auth/sso" className="btn btn-outline w-full">
-              &nbsp;{t('continue-with-saml-sso')}
-            </Link>
-          )}
+            {authProviders.saml && (
+              <Link href="/auth/sso" className="btn btn-outline w-full">
+                &nbsp;{t('continue-with-saml-sso')}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-      <p className="text-center text-sm text-gray-600 mt-3">
+
+      <p className="mt-10 text-center text-sm text-black">
         {t('dont-have-an-account')}
         <Link
           href={`/auth/join${params}`}

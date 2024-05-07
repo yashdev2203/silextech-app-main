@@ -5,10 +5,10 @@ import { CheckIcon } from '@heroicons/react/20/solid';
 
 const tiers = [
   {
-    name: 'Hobby',
+    name: 'Free',
     id: 'tier-hobby',
     href: '#',
-    priceMonthly: '$19',
+    priceMonthly: '$0',
     description:
       "The perfect plan if you're just getting started with our product.",
     features: [
@@ -62,12 +62,13 @@ const PricingSection = () => {
           Pricing
         </h2>
         <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          The right price for you, whoever you are
+          Flexible Pricing Plans to Suit Your Needs
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-        Qui iusto aut est earum eos quae. Eligendi est at nam aliquid ad quo
-        reprehenderit in aliquid fugiat dolorum voluptatibus.
+        Choose the plan that works best for you. Whether your are just starting
+        out or need advanced features, we have got you covered with our
+        affordable options.
       </p>
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
         {tiers.map((tier, tierIdx) => (
@@ -75,7 +76,7 @@ const PricingSection = () => {
             key={tier.id}
             className={classNames(
               tier.featured
-                ? 'relative bg-gray-900 shadow-2xl'
+                ? 'relative bg-s-lightblue shadow-2xl'
                 : 'bg-white/60 sm:mx-8 lg:mx-0',
               tier.featured
                 ? ''
@@ -88,7 +89,7 @@ const PricingSection = () => {
             <h3
               id={tier.id}
               className={classNames(
-                tier.featured ? 'text-indigo-400' : 'text-indigo-600',
+                tier.featured ? 'text-white' : 'text-black',
                 'text-base font-semibold leading-7'
               )}
             >
@@ -97,7 +98,7 @@ const PricingSection = () => {
             <p className="mt-4 flex items-baseline gap-x-2">
               <span
                 className={classNames(
-                  tier.featured ? 'text-white' : 'text-gray-900',
+                  tier.featured ? 'text-white' : 'text-s-darkblue',
                   'text-5xl font-bold tracking-tight'
                 )}
               >
@@ -105,7 +106,7 @@ const PricingSection = () => {
               </span>
               <span
                 className={classNames(
-                  tier.featured ? 'text-gray-400' : 'text-gray-500',
+                  tier.featured ? 'text-white' : 'text-black',
                   'text-base'
                 )}
               >
@@ -114,7 +115,7 @@ const PricingSection = () => {
             </p>
             <p
               className={classNames(
-                tier.featured ? 'text-gray-300' : 'text-gray-600',
+                tier.featured ? 'text-white' : 'text-black',
                 'mt-6 text-base leading-7'
               )}
             >
@@ -123,7 +124,7 @@ const PricingSection = () => {
             <ul
               role="list"
               className={classNames(
-                tier.featured ? 'text-gray-300' : 'text-gray-600',
+                tier.featured ? 'text-white' : 'text-black',
                 'mt-8 space-y-3 text-sm leading-6 sm:mt-10'
               )}
             >
@@ -131,7 +132,7 @@ const PricingSection = () => {
                 <li key={feature} className="flex gap-x-3">
                   <CheckIcon
                     className={classNames(
-                      tier.featured ? 'text-indigo-400' : 'text-indigo-600',
+                      tier.featured ? 'text-white' : 'text-black',
                       'h-6 w-5 flex-none'
                     )}
                     aria-hidden="true"
@@ -145,8 +146,8 @@ const PricingSection = () => {
               aria-describedby={tier.id}
               className={classNames(
                 tier.featured
-                  ? 'bg-indigo-500 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline-indigo-500'
-                  : 'text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline-indigo-600',
+                  ? 'bg-s-orange text-white shadow-sm hover: focus-visible:outline-indigo-500'
+                  : 'bg-s-darkblue text-white ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline-indigo-600',
                 'mt-8 block rounded-md py-2.5 px-3.5 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10'
               )}
             >

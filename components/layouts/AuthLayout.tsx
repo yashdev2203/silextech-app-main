@@ -1,6 +1,6 @@
-import app from '@/lib/app';
 import { useTranslation } from 'next-i18next';
-// import Image from 'next/image';
+import Image from 'next/image';
+import Logo from '../../public/logo.png';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -17,27 +17,27 @@ export default function AuthLayout({
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8 bg-gray-100">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+          <Image
+            src={Logo}
             className="mx-auto h-12"
-            alt={app.name}
+            alt="logo"
             width={48}
             height={48}
           />
           {heading && (
-            <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               {t(heading)}
             </h2>
           )}
           {description && (
-            <p className="text-center text-gray-600 dark:text-white">
+            <p className="mt-4 text-center text-base font-bold leading-3 tracking-tight text-gray-600">
               {t(description)}
             </p>
           )}
         </div>
-        <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">{children}</div>
+        <div className="mt-3 sm:mx-auto sm:w-full sm:max-w-md">{children}</div>
       </div>
     </>
   );

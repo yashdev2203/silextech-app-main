@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'files.stripe.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'tailwindui.com',
+      },
     ],
   },
   i18n,

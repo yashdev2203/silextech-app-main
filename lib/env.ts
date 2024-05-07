@@ -54,7 +54,7 @@ const env = {
   jackson: {
     url: process.env.JACKSON_URL,
     apiKey: process.env.JACKSON_API_KEY,
-    productId: process.env.JACKSON_PRODUCT_ID || 'boxyhq',
+    productId: process.env.JACKSON_PRODUCT_ID || 'silextech',
     selfHosted: process.env.JACKSON_URL !== undefined,
     sso: {
       callback: `${process.env.APP_URL}`,

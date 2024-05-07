@@ -4,24 +4,27 @@ import { type ReactElement, useState } from 'react';
 import type { NextPageWithLayout } from 'types';
 import { GetServerSidePropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import FAQSection from '@/components/defaultLanding/FAQSection';
 import HeroSection from '@/components/defaultLanding/HeroSection';
 import FeatureSection from '@/components/defaultLanding/FeatureSection';
 import PricingSection from '@/components/defaultLanding/PricingSection';
+import TestimonialSection from '@/components/defaultLanding/TestimonialSection';
+import FAQSection from '@/components/defaultLanding/FAQSection';
+import CTASection from '@/components/defaultLanding/CTASection';
+import ContactSection from '@/components/defaultLanding/ContactSection';
+import FooterSection from '@/components/defaultLanding/FooterSection';
 // import useTheme from 'hooks/useTheme';
 import env from '@/lib/env';
 import Head from 'next/head';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import FooterSection from '@/components/defaultLanding/FooterSection';
-import TestimonialSection from '@/components/defaultLanding/TestimonialSection';
-import ContactSection from '@/components/defaultLanding/ContactSection';
+import logo from '../public/logo.png';
+import Image from 'next/image';
 
 const navigation = [
-  { name: 'Product', href: '/Features' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Features', href: '#feature-section' },
+  { name: 'Pricing', href: '#pricing-section' },
+  { name: 'Contact Us', href: '#contact-section' },
+  { name: 'About Us', href: '/about' },
 ];
 
 const Home: NextPageWithLayout = () => {
@@ -42,12 +45,8 @@ const Home: NextPageWithLayout = () => {
         >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your  Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt=""
-              />
+              <span className="sr-only">Your Company</span>
+              <Image src={logo} alt="logo" width={60} height={60} />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -65,7 +64,7 @@ const Home: NextPageWithLayout = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-white"
+                className="text-sm font-semibold leading-6 text-black"
               >
                 {item.name}
               </a>
@@ -74,13 +73,13 @@ const Home: NextPageWithLayout = () => {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               href="/auth/join"
-              className="text-sm font-semibold leading-6 text-white px-2"
+              className="text-sm font-semibold leading-6 text-white px-4 py-3 bg-s-lightblue rounded mx-1"
             >
               Sign up
             </Link>
             <Link
               href="/auth/login"
-              className="text-sm font-semibold leading-6 text-white px-2"
+              className="text-sm font-semibold leading-6 text-white px-4 py-3 bg-s-orange rounded mx-1"
             >
               Log in
             </Link>
@@ -95,14 +94,14 @@ const Home: NextPageWithLayout = () => {
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt=""
                 />
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -126,12 +125,18 @@ const Home: NextPageWithLayout = () => {
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <Link
+                    href="/auth/join"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Sign Up
+                  </Link>
+                  <Link
+                    href="/auth/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -140,10 +145,15 @@ const Home: NextPageWithLayout = () => {
       </header>
       <main>
         <HeroSection />
-        <FeatureSection />
-        <PricingSection />
+        <div id="feature-section">
+          <FeatureSection />
+        </div>
+        <div id="pricing-section">
+          <PricingSection />
+        </div>
         <TestimonialSection />
         <FAQSection />
+        <CTASection />
         <ContactSection />
         <FooterSection />
       </main>

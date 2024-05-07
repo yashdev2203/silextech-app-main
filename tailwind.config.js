@@ -11,4 +11,14 @@ module.exports = {
     themes: ['corporate', 'black'],
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
+  theme: {
+    extend: {
+      colors: {
+        's-gray': '#666666',
+        's-darkblue': '#3F5A6D',
+        's-lightblue': '#428da4',
+        's-orange': '#F3892C',
+      },
+    },
+  },
 };
