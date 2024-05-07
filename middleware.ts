@@ -28,7 +28,7 @@ export default async function middleware(req: NextRequest) {
    // Check if the path is the health check path
    if (pathname.startsWith('/.swa/health')) {
     // Do nothing, just continue to serve the request as it is
-    return;
+    return NextResponse.next();;
 }
 
   // Bypass routes that don't require authentication
