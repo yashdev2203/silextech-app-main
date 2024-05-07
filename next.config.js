@@ -6,6 +6,7 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const nextConfig = {
   experimental: { esmExternals: false, webpackBuildWorker: true },
   reactStrictMode: true,
+  output:'standalone',
   images: {
     remotePatterns: [
       {
