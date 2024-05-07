@@ -34,7 +34,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
             # Only required for localhost
-            NEXTAUTH_URL: 'http://localhost:4002'
+            NEXTAUTH_URL: 'https://green-beach-08ae29c0f.5.azurestaticapps.net'
   
             # You can use openssl to generate a random 32 character key: openssl rand -base64 32
             NEXTAUTH_SECRET: 'rZTFtfNuSMajLnfFrWT2PZ3lX8WZv7W/Xs2H8hkEY6g='
@@ -49,7 +49,7 @@ jobs:
             # If you are using Docker, you can retrieve the values from: docker-compose.yml
             DATABASE_URL: 'postgresql://testAzure:Yashdev@123@mydatabase010.postgres.database.azure.com:5432/postgres?sslmode=require'
   
-            APP_URL: 'http://localhost:4002'
+            APP_URL: 'https://green-beach-08ae29c0f.5.azurestaticapps.net'
   
             SVIX_URL: 'https://api.eu.svix.com'
             SVIX_API_KEY:
@@ -80,11 +80,6 @@ jobs:
             # Mixpanel
             NEXT_PUBLIC_MIXPANEL_TOKEN:
   
-            # Jackson
-            JACKSON_URL: 'http://localhost:5225'
-            JACKSON_API_KEY: 'secret'
-            JACKSON_PRODUCT_ID: 'boxyhq'
-            JACKSON_WEBHOOK_SECRET: 'your-webhook-secret'
   
             # Enable Auth providers (comma separated)
             # Supported providers: github, google, saml, email, credentials, idp-initiated
