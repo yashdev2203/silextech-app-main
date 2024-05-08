@@ -43,7 +43,7 @@ jobs:
             SMTP_HOST: 'smtp.gmail.com'
             SMTP_PORT: 587
             SMTP_USER: 'yash@quazma.com'
-            SMTP_PASSWORD: 'yash@quazma.com'
+            SMTP_PASSWORD: 'Quazmadev@123'
             SMTP_FROM: 'yash@quazma.com'
   
             # If you are using Docker, you can retrieve the values from: docker-compose.yml
