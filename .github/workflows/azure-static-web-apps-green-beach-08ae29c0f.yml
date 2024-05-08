@@ -40,11 +40,11 @@ jobs:
             NEXTAUTH_SECRET: 'rZTFtfNuSMajLnfFrWT2PZ3lX8WZv7W/Xs2H8hkEY6g='
             
             # SMTP / Email settings 
-            SMTP_HOST:
-            SMTP_PORT:
-            SMTP_USER:
-            SMTP_PASSWORD:
-            SMTP_FROM:
+            SMTP_HOST: 'smtp.gmail.com'
+            SMTP_PORT: 587
+            SMTP_USER: 'yash@quazma.com'
+            SMTP_PASSWORD: 'yash@quazma.com'
+            SMTP_FROM: 'yash@quazma.com'
   
             # If you are using Docker, you can retrieve the values from: docker-compose.yml
             DATABASE_URL: 'postgresql://testAzure:Yashdev@123@mydatabase010.postgres.database.azure.com:5432/postgres?sslmode=require'
